@@ -1,8 +1,8 @@
-package org.tanbergtech.jxen.api.attachments;
+package org.tanberg.jxen.api.attachments;
 
-import org.tanbergtech.jxen.api.Endpoint;
-import org.tanbergtech.jxen.entity.attachment.Attachment;
-import org.tanbergtech.jxen.util.RestMethod;
+import org.tanberg.jxen.api.Endpoint;
+import org.tanberg.jxen.entity.attachment.Attachment;
+import org.tanberg.jxen.util.RestMethod;
 
 public class AttachmentsPost extends Endpoint<Attachment[]> {
 

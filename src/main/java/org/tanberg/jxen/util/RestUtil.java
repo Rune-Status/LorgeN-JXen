@@ -1,6 +1,6 @@
-package org.tanbergtech.jxen.util;
+package org.tanberg.jxen.util;
 
-import org.tanbergtech.jxen.api.Endpoint;
+import org.tanberg.jxen.api.Endpoint;
 
 public class RestUtil<T> {
 

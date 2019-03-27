@@ -1,4 +1,4 @@
-package org.tanbergtech.jxen.api;
+package org.tanberg.jxen.api;
 
 import com.esotericsoftware.reflectasm.ConstructorAccess;
 import com.google.common.collect.Maps;

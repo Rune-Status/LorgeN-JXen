@@ -1,4 +1,4 @@
-package org.tanbergtech.jxen.util;
+package org.tanberg.jxen.util;
 
 public enum RestMethod {
 

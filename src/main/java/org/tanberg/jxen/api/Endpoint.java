@@ -1,6 +1,6 @@
-package org.tanbergtech.jxen.api;
+package org.tanberg.jxen.api;
 
-import org.tanbergtech.jxen.util.RestMethod;
+import org.tanberg.jxen.util.RestMethod;
 
 public abstract class Endpoint<T> {
 
