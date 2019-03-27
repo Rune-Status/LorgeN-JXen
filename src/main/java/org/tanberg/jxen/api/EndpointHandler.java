@@ -21,7 +21,7 @@ public class EndpointHandler {
             ClassPath.from(Thread.currentThread().getContextClassLoader())
               .getTopLevelClasses()
               .stream()
-              .filter(info -> info.getPackageName().contains("org.tanbergtech.jxen.api"))
+              .filter(info -> info.getPackageName().contains("org.tanberg.jxen.api"))
               .map(ClassPath.ClassInfo::load)
               .filter(clazz -> Endpoint.class.isAssignableFrom(clazz) && clazz != Endpoint.class)
               .map(clazz -> (Class<? extends Endpoint<?>>) clazz)
