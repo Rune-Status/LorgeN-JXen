@@ -1,8 +1,6 @@
 package org.tanberg.jxen.entity.forum;
 
-import com.fasterxml.jackson.annotation.JsonGetter;
 import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.annotation.JsonSetter;
 
 public class Forum {
 
@@ -28,42 +26,34 @@ public class Forum {
         this.minTags = minTags;
     }
 
-    @JsonGetter("allow_posting")
     public boolean isAllowPosting() {
         return allowPosting;
     }
 
-    @JsonSetter("allow_posting")
     public void setAllowPosting(boolean allowPosting) {
         this.allowPosting = allowPosting;
     }
 
-    @JsonGetter("allow_poll")
     public boolean isAllowPoll() {
         return allowPoll;
     }
 
-    @JsonSetter("allow_poll")
     public void setAllowPoll(boolean allowPoll) {
         this.allowPoll = allowPoll;
     }
 
-    @JsonGetter("require_prefix")
     public boolean isRequirePrefix() {
         return requirePrefix;
     }
 
-    @JsonSetter("require_prefix")
     public void setRequirePrefix(boolean requirePrefix) {
         this.requirePrefix = requirePrefix;
     }
 
-    @JsonGetter("min_tags")
     public int getMinTags() {
         return minTags;
     }
 
-    @JsonSetter("min_tags")
     public void setMinTags(int minTags) {
         this.minTags = minTags;
     }

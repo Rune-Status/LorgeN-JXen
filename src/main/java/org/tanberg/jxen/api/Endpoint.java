@@ -15,6 +15,8 @@ public abstract class Endpoint<T> {
     // TODO: User context for super key
     // "If the API key selected is a super user key, you may pass the user ID of the context user via the
     // XF-Api-User header. If no user ID is passed, the context will default to a guest."
+
+    // UserSpec object? Duplicate method with string arg for user (Potentially unsafe, since varargs)?
     public abstract T callEndpoint(Object... args);
 
     public RestMethod getMethod() {
