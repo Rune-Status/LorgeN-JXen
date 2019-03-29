@@ -6,15 +6,17 @@ import java.nio.charset.Charset;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
+import java.util.concurrent.atomic.AtomicReference;
 
 public class JXen {
 
+    private static final AtomicReference<JXen> INSTANCE = new AtomicReference<>(null);
     private static final Charset DEFAULT_CHARSET = Charset.forName("UTF-8");
 
     private final String apiKey;
     private final String baseUrl;
 
-    public JXen(String apiKey, String baseUrl) {
+    private JXen(String apiKey, String baseUrl) {
         this.apiKey = apiKey;
         this.baseUrl = baseUrl;
     }
@@ -62,7 +64,20 @@ public class JXen {
                 throw new RuntimeException("Required API instantiation fields are not present.");
             }
 
-            return new JXen(this.apiKey, this.baseUrl);
+            JXen jx = new JXen(this.apiKey, this.baseUrl);
+            INSTANCE.set(jx);
+
+            return jx;
         }
+    }
+
+    public static JXen getJXenInstance() {
+        JXen jx = INSTANCE.get();
+
+        if (jx == null) {
+            throw new IllegalStateException("JXen has not been instantiated.");
+        }
+
+        return jx;
     }
 }

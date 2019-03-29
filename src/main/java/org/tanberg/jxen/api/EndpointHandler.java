@@ -34,6 +34,7 @@ public class EndpointHandler {
         }
     }
 
+    @SuppressWarnings("unchecked")
     public static <T extends Endpoint> T getByClass(Class<? extends Endpoint<?>> clazz) {
         return (T) CONSTRUCTORS.get(clazz).newInstance();
     }

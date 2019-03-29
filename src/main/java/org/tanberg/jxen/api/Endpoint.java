@@ -19,6 +19,8 @@ public abstract class Endpoint<T> {
     // UserSpec object? Duplicate method with string arg for user (Potentially unsafe, since varargs)?
     public abstract T callEndpoint(Object... args);
 
+    public abstract Object toObject();
+
     public RestMethod getMethod() {
         return this.method;
     }
