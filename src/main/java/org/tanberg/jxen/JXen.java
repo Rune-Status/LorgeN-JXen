@@ -1,5 +1,12 @@
 package org.tanberg.jxen;
 
+import org.tanberg.jxen.api.AttachmentsApi;
+import org.tanberg.jxen.api.AuthApi;
+import org.tanberg.jxen.api.ConversationMessagesApi;
+import org.tanberg.jxen.api.ConversationsApi;
+import retrofit2.Retrofit;
+import retrofit2.converter.gson.GsonConverterFactory;
+
 import java.io.File;
 import java.io.IOException;
 import java.nio.charset.Charset;
@@ -12,13 +19,17 @@ public class JXen {
 
     private static final AtomicReference<JXen> INSTANCE = new AtomicReference<>(null);
     private static final Charset DEFAULT_CHARSET = Charset.forName("UTF-8");
+    private static final Retrofit.Builder BUILDER = new Retrofit.Builder()
+      .addConverterFactory(GsonConverterFactory.create());
 
     private final String apiKey;
     private final String baseUrl;
+    private final Retrofit retrofit;
 
     private JXen(String apiKey, String baseUrl) {
         this.apiKey = apiKey;
         this.baseUrl = baseUrl;
+        this.retrofit = BUILDER.baseUrl(JXen.get().getBaseUrl()).build();
     }
 
     public String getApiKey() {
@@ -27,6 +38,22 @@ public class JXen {
 
     public String getBaseUrl() {
         return this.baseUrl;
+    }
+
+    public AttachmentsApi getAttachmentsApi() {
+        return this.retrofit.create(AttachmentsApi.class);
+    }
+
+    public AuthApi getAuthApi() {
+        return this.retrofit.create(AuthApi.class);
+    }
+
+    public ConversationMessagesApi getConversationMessagesApi() {
+        return this.retrofit.create(ConversationMessagesApi.class);
+    }
+
+    public ConversationsApi getConversationsApi() {
+        return this.retrofit.create(ConversationsApi.class);
     }
 
     public static class Builder {
@@ -71,7 +98,7 @@ public class JXen {
         }
     }
 
-    public static JXen getJXenInstance() {
+    public static JXen get() {
         JXen jx = INSTANCE.get();
 
         if (jx == null) {
